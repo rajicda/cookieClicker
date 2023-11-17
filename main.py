@@ -1,10 +1,9 @@
-from selenium import webdriver
-from selenium.common import WebDriverException, StaleElementReferenceException
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support import expected_conditions as EC
 from time import time
 
+from selenium import webdriver
+from selenium.common import StaleElementReferenceException
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait
 
 # Keep chrome opened
@@ -14,7 +13,7 @@ chrome_options.add_argument("window-size=1400,1200")
 
 driver = webdriver.Chrome(options=chrome_options)
 driver.get("https://orteil.dashnet.org/cookieclicker/")
-WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "langSelect-EN")))
+WebDriverWait(driver, 10).until(ec.element_to_be_clickable((By.ID, "langSelect-EN")))
 driver.find_element(By.ID, value="langSelect-EN").click()
 
 wait_time = 3
